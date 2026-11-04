@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react';
+import emailjs from '@emailjs/browser';
 import { ArrowUpRight, Check, Copy } from 'lucide-react';
 
 interface ContactForm {
@@ -46,6 +47,8 @@ const WhatsAppIcon = ({ className = 'w-5 h-5' }: { className?: string }) => (
 export const Contact = () => {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+
   const [formData, setFormData] = useState<ContactForm>({
     name: '',
     email: '',
@@ -64,19 +67,59 @@ export const Contact = () => {
     }
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+    if (
+      !formData.name.trim() ||
+      !formData.email.trim() ||
+      !formData.message.trim()
+    ) {
       return;
     }
 
-    setSubmitted(true);
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-    window.setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '', message: '' });
-    }, 4000);
+    if (!serviceId || !templateId || !publicKey) {
+      alert('Email service is not configured. Please try again later.');
+      console.error('EmailJS environment variables are missing.');
+      return;
+    }
+
+    setIsSending(true);
+
+    try {
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          message: formData.message.trim(),
+        },
+        {
+          publicKey,
+        }
+      );
+
+      setSubmitted(true);
+
+      window.setTimeout(() => {
+        setSubmitted(false);
+        setFormData({
+          name: '',
+          email: '',
+          message: '',
+        });
+      }, 4000);
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      alert('Message could not be sent. Please try again.');
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -303,9 +346,10 @@ export const Contact = () => {
 
                   <button
                     type="submit"
-                    className="flex w-full min-h-12 items-center justify-center gap-2 rounded-full bg-red-500 py-4 text-xs font-bold uppercase tracking-widest text-white shadow-lg shadow-red-500/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-red-600"
+                    disabled={isSending}
+                    className="flex w-full min-h-12 items-center justify-center gap-2 rounded-full bg-red-500 py-4 text-xs font-bold uppercase tracking-widest text-white shadow-lg shadow-red-500/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-red-600 disabled:cursor-not-allowed disabled:opacity-60"
                   >
-                    <span>Send Message</span>
+                    <span>{isSending ? 'Sending...' : 'Send Message'}</span>
                     <ArrowUpRight className="h-4 w-4" />
                   </button>
                 </form>
