@@ -1,0 +1,6 @@
+{
+  "name": "Interactive Portfolio & Custom Cursor Studio",
+  "description": "Modern developer portfolio featuring a custom animated spring cursor follower, interactive project showcase, and cursor physics playground.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
