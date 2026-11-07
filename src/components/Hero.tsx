@@ -19,6 +19,24 @@ const DiscordIcon = ({ className = 'w-4 h-4' }: { className?: string }) => (
   </svg>
 );
 
+const FacebookIcon = ({ className = 'w-4 h-4' }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.5 1.6-1.5h1.7V3.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.3v3.2h2.8V21h3.4z" />
+  </svg>
+);
+
+const XIcon = ({ className = 'w-4 h-4' }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 13.9 4.9 22H1.8l7.3-8.4L1.3 2h6.5l4.5 7.5L18.9 2zm-1.1 18h1.7L6.8 3.9H5L17.8 20z" />
+  </svg>
+);
+
+const WhatsAppIcon = ({ className = 'w-4 h-4' }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M20.5 3.5A11.8 11.8 0 0 0 2 17.7L.5 23.2l5.7-1.5A11.8 11.8 0 0 0 20.5 3.5zM12 21a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.4.9.9-3.3-.2-.4A9.8 9.8 0 1 1 12 21zm5.4-7.3c-.3-.1-1.6-.8-1.9-.9-.2-.1-.4-.1-.6.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.6-.8-2.7-1.5-3.8-3.3-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5s-.6-1.4-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.3s1 2.7 1.2 2.9c0 0 2 3.1 4.9 4.3 1.8.8 2.5.9 3.4.8.5-.1 1.6-.7 1.8-1.4.2-.7.2-1.3.1-1.4-.1-.2-.3-.3-.6-.4z" />
+  </svg>
+);
+
 export const Hero = () => {
   return (
     <div className="relative overflow-hidden bg-white transition-colors">
@@ -77,40 +95,35 @@ export const Hero = () => {
               </a>
             </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-3 pt-3 text-xs font-mono min-[380px]:gap-4 lg:justify-start">
-              <a
-                href="https://github.com/yousufali2525"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 font-medium text-[#181717] transition-colors hover:text-red-500"
-              >
+            <div className="mx-auto grid w-full max-w-[390px] grid-cols-3 items-center justify-items-center gap-x-2 gap-y-4 pt-4 text-xs font-mono lg:mx-0">
+              <a href="https://github.com/yousufali2525" target="_blank" rel="noopener noreferrer" className="inline-flex w-full items-center justify-center gap-1.5 whitespace-nowrap font-medium text-[#181717] transition-all duration-200 hover:-translate-y-0.5 hover:text-red-500">
                 <GithubIcon />
                 <span>GitHub</span>
               </a>
 
-              <span aria-hidden="true" className="text-zinc-300">·</span>
-
-              <a
-                href="https://www.linkedin.com/in/yousufali2525/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 font-medium text-[#0A66C2] transition-colors hover:text-red-500"
-              >
+              <a href="https://www.linkedin.com/in/yousufali2525/" target="_blank" rel="noopener noreferrer" className="inline-flex w-full items-center justify-center gap-1.5 whitespace-nowrap font-medium text-[#0A66C2] transition-all duration-200 hover:-translate-y-0.5 hover:text-red-500">
                 <LinkedinIcon />
                 <span>LinkedIn</span>
               </a>
 
-              <span aria-hidden="true" className="text-zinc-300">·</span>
-
-              <a
-                href="https://discord.com/users/1520096208691925102"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 font-medium text-[#5865F2] transition-colors hover:text-red-500"
-                title="Discord: yousufali2525"
-              >
+              <a href="https://discord.com/users/1520096208691925102" target="_blank" rel="noopener noreferrer" className="inline-flex w-full items-center justify-center gap-1.5 whitespace-nowrap font-medium text-[#5865F2] transition-all duration-200 hover:-translate-y-0.5 hover:text-red-500" title="Discord: yousufali2525">
                 <DiscordIcon />
                 <span>Discord</span>
+              </a>
+
+              <a href="https://www.facebook.com/yousufali25" target="_blank" rel="noopener noreferrer" className="inline-flex w-full items-center justify-center gap-1.5 whitespace-nowrap font-medium text-[#1877F2] transition-all duration-200 hover:-translate-y-0.5 hover:text-red-500" title="Facebook: yousufali25">
+                <FacebookIcon />
+                <span>Facebook</span>
+              </a>
+
+              <a href="https://x.com/yousufali2525" target="_blank" rel="noopener noreferrer" className="inline-flex w-full items-center justify-center gap-1.5 whitespace-nowrap font-medium text-[#101010] transition-all duration-200 hover:-translate-y-0.5 hover:text-red-500" title="X: yousufali2525">
+                <XIcon />
+                <span>X</span>
+              </a>
+
+              <a href="https://wa.me/8801521748537" target="_blank" rel="noopener noreferrer" className="inline-flex w-full items-center justify-center gap-1.5 whitespace-nowrap font-medium text-[#25D366] transition-all duration-200 hover:-translate-y-0.5 hover:text-red-500" title="WhatsApp: +880 1521-748537">
+                <WhatsAppIcon />
+                <span>WhatsApp</span>
               </a>
             </div>
           </div>
