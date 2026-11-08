@@ -10,64 +10,70 @@ interface Project {
   category: string;
   year: string;
   tags: string[];
+  image: string;
   link: string;
   github: string;
 }
 
 const projectItems: Project[] = [
   {
-    id: 'react-b14-a5',
-    num: '01',
-    title: 'React Dev Stack Builder',
-    tagline: 'A modern and responsive developer-focused website designed to showcase development technologies, tools, and project information through a clean interface and smooth user experience.',
-    category: 'Frontend',
-    year: '2026',
-    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
-    link: 'https://extraordinary-cheesecake-4c5cb4.netlify.app/',
-    github: '',
-  },
-  {
-    id: 'fitlog',
-    num: '02',
-    title: 'FitLog - Fitness Tracker',
-    tagline: 'A modern fitness tracking application designed to help users explore exercises, discover workout routines, organize fitness activities, and manage their personal workout plans.',
-    category: 'Frontend',
-    year: '2026',
-    tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
-    link: 'https://b14-a6-fit-log-mu.vercel.app/',
-    github: '',
-  },
-  {
-    id: 'bazar-dor',
-    num: '03',
-    title: 'Bazar Dor - বাজার দর',
-    tagline: 'A Bengali-friendly market price platform designed to help users explore everyday product prices and stay informed about essential grocery, vegetable, fish, and meat prices.',
-    category: 'Frontend',
-    year: '2026',
-    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
-    link: 'https://b14-a07-bazar-dor.vercel.app/',
-    github: '',
-  },
-  {
-    id: 'devconf',
-    num: '04',
-    title: 'DevConf 2026',
-    tagline: 'A professional developer conference website featuring event information, speakers, schedules, technology tracks, venue details, and registration plans with a modern responsive design.',
-    category: 'Frontend',
-    year: '2026',
-    tags: ['HTML', 'CSS', 'JavaScript', 'Responsive Design'],
-    link: 'https://yousufali2525.github.io/assignment-B-14-A-01/',
-    github: '',
-  },
-  {
     id: 'booknook',
-    num: '05',
+    num: '01',
     title: 'BookNook - Online Bookstore',
     tagline: 'A full-stack online bookstore application built with Next.js, combining frontend and backend development to deliver an interactive book browsing experience with dynamic functionality and data management.',
     category: 'Full-Stack',
     year: '2026',
     tags: ['Next.js', 'React', 'JavaScript', 'Full-Stack Development'],
+    image: '/booknook.png',
     link: 'https://booknook-22-cc8a.vercel.app/',
+    github: '',
+  },
+  {
+    id: 'bazar-dor',
+    num: '02',
+    title: 'Bazar Dor - বাজার দর',
+    tagline: 'A Bengali-friendly market price platform designed to help users explore everyday product prices and stay informed about essential grocery, vegetable, fish, and meat prices.',
+    category: 'Frontend',
+    year: '2026',
+    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
+    image: '/bazardor.png',
+    link: 'https://b14-a07-bazar-dor.vercel.app/',
+    github: '',
+  },
+  {
+    id: 'fitlog',
+    num: '03',
+    title: 'FitLog - Fitness Tracker',
+    tagline: 'A modern fitness tracking application designed to help users explore exercises, discover workout routines, organize fitness activities, and manage their personal workout plans.',
+    category: 'Frontend',
+    year: '2026',
+    tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
+    image: '/fitlog.png',
+    link: 'https://b14-a6-fit-log-mu.vercel.app/',
+    github: '',
+  },
+  {
+    id: 'react-b14-a5',
+    num: '04',
+    title: 'React Dev Stack Builder',
+    tagline: 'A modern and responsive developer-focused website designed to showcase development technologies, tools, and project information through a clean interface and smooth user experience.',
+    category: 'Frontend',
+    year: '2026',
+    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
+    image: '/devstack.png',
+    link: 'https://extraordinary-cheesecake-4c5cb4.netlify.app/',
+    github: '',
+  },
+  {
+    id: 'devconf',
+    num: '05',
+    title: 'DevConf 2026',
+    tagline: 'A professional developer conference website featuring event information, speakers, schedules, technology tracks, venue details, and registration plans with a modern responsive design.',
+    category: 'Frontend',
+    year: '2026',
+    tags: ['HTML', 'CSS', 'JavaScript', 'Responsive Design'],
+    image: '/devconf.png',
+    link: 'https://yousufali2525.github.io/assignment-B-14-A-01/',
     github: '',
   },
 ];
@@ -136,6 +142,19 @@ export const Projects = () => {
                   <span>{p.year}</span>
                 </div>
 
+                <div className="mb-5 overflow-hidden rounded-xl">
+                  <img
+                    src={p.image}
+                    alt={`${p.title} project screenshot`}
+                    loading="lazy"
+                    onError={(e) => {
+                      console.error('Image failed to load:', p.image);
+                      e.currentTarget.style.visibility = 'hidden';
+                    }}
+                    className="h-auto max-h-64 w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
+                  />
+                </div>
+
                 <div className="mb-3 flex flex-wrap items-center justify-between gap-2 sm:mb-4">
                   <h3 className="break-words text-xl font-black leading-tight text-[#101010] transition-colors group-hover:text-red-500 sm:text-2xl lg:text-3xl">
                     {p.title}
@@ -188,11 +207,19 @@ export const Projects = () => {
               <button
                 type="button"
                 onClick={() => setSelected(null)}
-                className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full text-zinc-400 transition-colors hover:bg-red-50 hover:text-red-500 sm:right-6 sm:top-6"
+                className="absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-zinc-400 shadow-sm transition-colors hover:bg-red-50 hover:text-red-500 sm:right-6 sm:top-6"
                 aria-label="Close project details"
               >
                 <X className="h-5 w-5" />
               </button>
+
+              <div className="mb-5 overflow-hidden rounded-xl">
+                <img
+                  src={selected.image}
+                  alt={`${selected.title} project screenshot`}
+                  className="h-auto max-h-72 w-full object-cover object-center"
+                />
+              </div>
 
               <span className="mb-2 block pr-12 text-xs font-mono font-bold uppercase text-red-500">
                 {selected.category} · {selected.year}

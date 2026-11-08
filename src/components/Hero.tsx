@@ -1,5 +1,5 @@
 
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, FileText } from 'lucide-react';
 
 const GithubIcon = ({ className = 'w-4 h-4' }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -144,42 +144,56 @@ export const Hero = () => {
             </div>
           </div>
 
-          <div className="order-3 grid grid-cols-1 gap-3.5 self-center sm:grid-cols-2 lg:grid-cols-1">
-            <div className="rounded-2xl border border-transparent bg-transparent p-4 shadow-none backdrop-blur-none transition-all duration-300 hover:border-red-500/50 hover:bg-red-50/20 sm:p-5">
-              <span className="mb-1 block text-[10px] font-mono font-bold uppercase tracking-wider text-red-500">
-                01 / CORE FOCUS
-              </span>
-              <h3 className="mb-1 text-base font-bold text-[#101010]">
-                Interactive Interfaces
-              </h3>
-              <p className="text-xs leading-relaxed text-zinc-600">
-                Responsive layouts, reusable components, and smooth micro-interactions built with React & Tailwind.
-              </p>
+          <div className="order-3 flex flex-col gap-3.5 self-center">
+            <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 lg:grid-cols-1">
+              <div className="rounded-2xl border border-transparent bg-transparent p-4 shadow-none backdrop-blur-none transition-all duration-300 hover:border-red-500/50 hover:bg-red-50/20 sm:p-5">
+                <span className="mb-1 block text-[10px] font-mono font-bold uppercase tracking-wider text-red-500">
+                  01 / CORE FOCUS
+                </span>
+                <h3 className="mb-1 text-base font-bold text-[#101010]">
+                  Interactive Interfaces
+                </h3>
+                <p className="text-xs leading-relaxed text-zinc-600">
+                  Responsive layouts, reusable components, and smooth micro-interactions built with React & Tailwind.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-transparent bg-transparent p-4 shadow-none backdrop-blur-none transition-all duration-300 hover:border-red-500/50 hover:bg-red-50/20 sm:p-5">
+                <span className="mb-1 block text-[10px] font-mono font-bold uppercase tracking-wider text-red-500">
+                  02 / ACADEMIC BACKGROUND
+                </span>
+                <h3 className="mb-1 text-base font-bold text-[#101010]">
+                  Varendra University
+                </h3>
+                <p className="text-xs leading-relaxed text-zinc-600">
+                  Department of Computer Science & Engineering, Rajshahi, Bangladesh.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-transparent bg-transparent p-4 shadow-none backdrop-blur-none transition-all duration-300 hover:border-red-500/50 hover:bg-red-50/20 sm:col-span-2 sm:p-5 lg:col-span-1">
+                <span className="mb-1 block text-[10px] font-mono font-bold uppercase tracking-wider text-red-500">
+                  03 / FULL-STACK PIPELINE
+                </span>
+                <h3 className="mb-1 text-base font-bold text-[#101010]">
+                  APIs & State Architecture
+                </h3>
+                <p className="text-xs leading-relaxed text-zinc-600">
+                  Full-stack workflows with TypeScript, Node.js, and modern relational databases.
+                </p>
+              </div>
             </div>
 
-            <div className="rounded-2xl border border-transparent bg-transparent p-4 shadow-none backdrop-blur-none transition-all duration-300 hover:border-red-500/50 hover:bg-red-50/20 sm:p-5">
-              <span className="mb-1 block text-[10px] font-mono font-bold uppercase tracking-wider text-red-500">
-                02 / ACADEMIC BACKGROUND
-              </span>
-              <h3 className="mb-1 text-base font-bold text-[#101010]">
-                Varendra University
-              </h3>
-              <p className="text-xs leading-relaxed text-zinc-600">
-                Department of Computer Science & Engineering, Rajshahi, Bangladesh.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-transparent bg-transparent p-4 shadow-none backdrop-blur-none transition-all duration-300 hover:border-red-500/50 hover:bg-red-50/20 sm:col-span-2 sm:p-5 lg:col-span-1">
-              <span className="mb-1 block text-[10px] font-mono font-bold uppercase tracking-wider text-red-500">
-                03 / FULL-STACK PIPELINE
-              </span>
-              <h3 className="mb-1 text-base font-bold text-[#101010]">
-                APIs & State Architecture
-              </h3>
-              <p className="text-xs leading-relaxed text-zinc-600">
-                Full-stack workflows with TypeScript, Node.js, and modern relational databases.
-              </p>
-            </div>
+            <a
+              href="https://drive.google.com/file/d/1S0oK35BzRH5wZItvKjJNFHi2SsqcQym6/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View and download my resume"
+              className="group inline-flex w-full items-center justify-center gap-3 rounded-xl border border-red-200 bg-red-50 px-5 py-4 text-sm font-bold text-red-600 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-red-500 hover:bg-red-500 hover:text-white hover:shadow-lg hover:shadow-red-500/25"
+            >
+              <FileText className="h-5 w-5" />
+              <span>View My Resume</span>
+              <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+            </a>
           </div>
         </div>
       </section>
