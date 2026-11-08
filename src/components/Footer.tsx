@@ -106,7 +106,7 @@ export const Footer = () => {
           {/* Copyright */}
           <div className="px-2 text-center font-medium leading-relaxed text-white/80">
             <span>
-              © {new Date().getFullYear()} Md. Yousuf Ali.
+              © {new Date().getFullYear()} Yousuf Ali.
             </span>
             <span className="block sm:inline">
               {' '}Designed & Developed with passion | Full-Stack Web Developer.

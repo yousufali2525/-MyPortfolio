@@ -48,16 +48,17 @@ export const Hero = () => {
     <div className="relative overflow-hidden bg-white transition-colors">
       <div
         aria-hidden="true"
-        className="hero-bg-text pointer-events-none absolute left-1/2 top-[12%] z-0 -translate-x-1/2 whitespace-nowrap text-center text-[20vw] font-black leading-none tracking-tighter text-[#f2f2f4] select-none sm:top-[14%] sm:text-[18vw] lg:top-[16%] lg:text-[16vw]"
+        className="hero-bg-text pointer-events-none absolute left-1/2 top-[5%] z-0 -translate-x-1/2 whitespace-nowrap text-center text-[18vw] font-black leading-none tracking-tighter text-[#f2f2f4] select-none sm:top-[14%] sm:text-[18vw] lg:top-[16%] lg:text-[16vw]"
       >
         DEVELOPER
       </div>
 
       <section
         id="home"
-        className="relative z-10 mx-auto flex min-h-[calc(100vh-4rem)] max-w-7xl flex-col justify-center px-4 py-24 sm:px-8 sm:py-28 lg:px-10 lg:py-20"
+        className="relative z-10 mx-auto flex min-h-[calc(100vh-4rem)] max-w-7xl flex-col justify-center px-4 py-16 sm:px-8 sm:py-28 lg:px-10 lg:py-20"
       >
         <div className="grid flex-1 grid-cols-1 items-center gap-6 sm:gap-8 lg:grid-cols-[1fr_1.1fr_0.85fr] lg:gap-6">
+
           <div className="hero-intro order-2 self-center space-y-4 text-center lg:order-1 lg:text-left">
             <p className="text-xs font-extrabold tracking-[0.25em] text-[#888] uppercase">
               HELLO! I'M YOUSUF
@@ -135,7 +136,7 @@ export const Hero = () => {
             </div>
           </div>
 
-          <div className="hero-image order-1 relative flex h-[280px] -translate-y-10 items-end justify-center min-[380px]:h-[320px] sm:h-[440px] lg:order-2 lg:h-[600px] lg:-translate-y-16">
+          <div className="hero-image order-1 relative flex h-[360px] translate-y-0 items-end justify-center min-[380px]:h-[400px] sm:h-[440px] sm:-translate-y-10 lg:order-2 lg:h-[600px] lg:-translate-y-16">
             <div className="absolute bottom-[8%] left-1/2 h-[65%] w-[75%] -translate-x-1/2 rounded-full bg-gradient-to-t from-red-100/70 via-rose-50/40 to-transparent blur-3xl" />
 
             <div className="absolute bottom-[5%] left-1/2 h-[8%] w-[65%] -translate-x-1/2 rounded-full bg-zinc-300/30 blur-2xl" />
