@@ -1,5 +1,11 @@
 
-import { ArrowUpRight, FileText } from 'lucide-react';
+import { ArrowUpRight, FileText, Download } from 'lucide-react';
+
+const RESUME_VIEW_URL =
+  'https://drive.google.com/file/d/1S0oK35BzRH5wZItvKjJNFHi2SsqcQym6/view?usp=sharing';
+
+const CV_VIEW_URL =
+  'https://drive.google.com/file/d/1KUNt6LYKBmYekPt4IJblus6I6kYXSiOq/view?usp=sharing';
 
 const GithubIcon = ({ className = 'w-4 h-4' }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -81,17 +87,18 @@ export const Hero = () => {
             <div className="flex flex-wrap items-center justify-center gap-3 pt-3 sm:gap-4 lg:justify-start">
               <a
                 href="#projects"
-                className="group inline-flex items-center gap-2 rounded-full bg-red-500 px-4 py-3 text-[10px] font-bold uppercase tracking-wider text-white shadow-lg shadow-red-500/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-red-600 hover:shadow-red-500/40 min-[380px]:px-5 min-[380px]:text-xs sm:px-6"
+                className="group inline-flex items-center gap-2 rounded-full border border-red-200 bg-red-50 px-4 py-3 text-[10px] font-bold uppercase tracking-wider text-red-600 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-red-500 hover:bg-red-500 hover:text-white hover:shadow-lg hover:shadow-red-500/25 active:scale-[0.97] min-[380px]:px-5 min-[380px]:text-xs sm:px-6"
               >
                 <span>View Projects</span>
-                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
 
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 rounded-full border border-zinc-300 bg-white px-4 py-3 text-[10px] font-bold uppercase tracking-wider text-[#101010] shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-red-500 hover:text-red-500 min-[380px]:px-5 min-[380px]:text-xs sm:px-6"
+                className="group inline-flex items-center gap-2 rounded-full border border-red-200 bg-red-50 px-4 py-3 text-[10px] font-bold uppercase tracking-wider text-red-600 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-red-500 hover:bg-red-500 hover:text-white hover:shadow-lg hover:shadow-red-500/25 active:scale-[0.97] min-[380px]:px-5 min-[380px]:text-xs sm:px-6"
               >
-                Say Hello
+                <span>Say Hello</span>
+                <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
             </div>
 
@@ -128,7 +135,7 @@ export const Hero = () => {
             </div>
           </div>
 
-          <div className="hero-image order-1 relative flex h-[280px] items-end justify-center min-[380px]:h-[320px] sm:h-[440px] lg:order-2 lg:h-[600px]">
+          <div className="hero-image order-1 relative flex h-[280px] -translate-y-10 items-end justify-center min-[380px]:h-[320px] sm:h-[440px] lg:order-2 lg:h-[600px] lg:-translate-y-16">
             <div className="absolute bottom-[8%] left-1/2 h-[65%] w-[75%] -translate-x-1/2 rounded-full bg-gradient-to-t from-red-100/70 via-rose-50/40 to-transparent blur-3xl" />
 
             <div className="absolute bottom-[5%] left-1/2 h-[8%] w-[65%] -translate-x-1/2 rounded-full bg-zinc-300/30 blur-2xl" />
@@ -183,17 +190,31 @@ export const Hero = () => {
               </div>
             </div>
 
-            <a
-              href="https://drive.google.com/file/d/1S0oK35BzRH5wZItvKjJNFHi2SsqcQym6/view?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="View and download my resume"
-              className="group inline-flex w-full items-center justify-center gap-3 rounded-xl border border-red-200 bg-red-50 px-5 py-4 text-sm font-bold text-red-600 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-red-500 hover:bg-red-500 hover:text-white hover:shadow-lg hover:shadow-red-500/25"
-            >
-              <FileText className="h-5 w-5" />
-              <span>View My Resume</span>
-              <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-            </a>
+            <div className="flex w-full gap-2">
+              <a
+                href={RESUME_VIEW_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View my resume"
+                className="group inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-red-200 bg-red-50 px-3 py-3 text-xs font-bold text-red-600 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-red-500 hover:bg-red-500 hover:text-white hover:shadow-lg hover:shadow-red-500/25 active:scale-[0.97] sm:text-sm"
+              >
+                <FileText className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:scale-110" />
+                <span>View Resume</span>
+                <ArrowUpRight className="h-3.5 w-3.5 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </a>
+
+              <a
+                href={CV_VIEW_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View and download my CV"
+                className="group inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-red-200 bg-red-50 px-3 py-3 text-xs font-bold text-red-600 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-red-500 hover:bg-red-500 hover:text-white hover:shadow-lg hover:shadow-red-500/25 active:scale-[0.97] sm:text-sm"
+              >
+                <Download className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:translate-y-0.5" />
+                <span>Download CV</span>
+                <ArrowUpRight className="h-3.5 w-3.5 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </a>
+            </div>
           </div>
         </div>
       </section>
